@@ -158,7 +158,7 @@ export default function Home() {
           <p className={`text-lg max-w-3xl mx-auto mb-12 leading-relaxed ${
             isDarkMode ? 'text-gray-400' : 'text-gray-500'
           }`}>
-            This is my codebox bootcamp project. I have been a part of a start up for the past couple months and I had to make a website for it. I used that website a baseline for this project and have been adding to it with my own info. So I did code all of this but it's not new to me. 
+            This is my codebox bootcamp project. I built this entire portfolio from scratch using my prior knowledge and experience from other projects. Having worked on a startup website and various other development projects, I was able to create this quickly by applying the skills and techniques I've learned over the years. 
           </p>
           <button 
             onClick={() => scrollToSection('contact')}
@@ -180,7 +180,7 @@ export default function Home() {
               <p className={`mb-8 text-lg leading-relaxed ${
                 isDarkMode ? 'text-gray-300' : 'text-gray-600'
               }`}>
-                I have been coding since I was a little kid when my dad first showed me how to. I really enjoyed it and have been coding ever since. When I got to highscool I realized what I could do with it and have been making projects ever since. My favorite projects have been A project that won me the congressional app challenge and I got to go to congress for it, a website that was commissioned by a company I worked for, and a website that was commissioned by the school I used to go to and the start up i have been working on. You can see all of these or the code for them down below.
+                I have been coding since I was a little kid when my dad first showed me how to. I really enjoyed it and have been coding ever since. When I got to high school, I realized what I could do with it and have been making projects ever since. My favorite projects have been a project that won me the congressional app challenge and I got to go to Congress for it, a website that was commissioned by a company I worked for, and a website that was commissioned by the school I used to go to and the startup I have been working on. You can see all of these or the code for them down below.
               </p>
               
               <div className="grid grid-cols-2 gap-6">
@@ -237,14 +237,14 @@ export default function Home() {
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
                   <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-4"></span>
-                  team lead for startup project
+                  Team lead for startup project
                 </div>
                 
                 <div className={`flex items-start ${
                   isDarkMode ? 'text-gray-300' : 'text-gray-600'
                 }`}>
                   <span className="w-2 h-2 bg-gradient-to-r from-blue-400 to-purple-400 rounded-full mr-4 mt-1 flex-shrink-0"></span>
-                  <span>Won Congressional App Challenge and got to go to Congress to show off app that I made</span>
+                  <span>Won Congressional App Challenge and got to go to Congress to show off the app that I made</span>
                 </div>
               </div>
             </div>
@@ -259,26 +259,26 @@ export default function Home() {
           <div className="grid md:grid-cols-2 gap-8">
             {[
               {
-                title: "Rush start up",
-                description: "social media start up for college fraternities and sororities - Git hub currently not public ",
+                title: "Rush startup",
+                description: "Social media startup for college fraternities and sororities - GitHub currently not public",
                 tech: ["React", "Node.js"],
                 link: "https://github.com/rush-app-WA/fullstack"
               },
               {
                 title: "Congressional App Challenge: AP Grader",
-                description: "App that grades AP english essays with a custom built and trained ai so teachers wouldnt have to spend all their time grading essays",
+                description: "App that grades AP English essays with a custom built and trained AI so teachers wouldn't have to spend all their time grading essays",
                 tech: ["swift", "xcode","swiftUI"],
                 link: "https://youtu.be/QUZFEkDLhFA?si=NeCQIC_0kEL2MGsO"
               },
               {
-                title: "live face id deterction ",
-                description: "a live face detection app that scans for afaces and puts a box around them ",
+                title: "Live face ID detection",
+                description: "A live face detection app that scans for faces and puts a box around them",
                 tech: ["python","haarcascade"],
                 link: "https://github.com/dfed25/livefaceDetect"
               },
               {
                 title: "School website",
-                description: "a website for the school I used to go to",
+                description: "A website for the school I used to go to",
                 tech: ["html", "css", "nextJs", "supabase"],
                 link: "https://github.com/marchfederico/apcoder"
               }
