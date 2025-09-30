@@ -278,7 +278,7 @@ export default function Home() {
               },
               {
                 title: "School website",
-                description: "A website for the school I used to go to",
+                description: "A website for the school I used to go to, lets students in AP Computer Science A to practice on real AP questions from the past and grades them on the AP rubric like AP grader would with a custom trained AI",
                 tech: ["html", "css", "nextJs", "supabase"],
                 link: "https://github.com/marchfederico/apcoder"
               }
