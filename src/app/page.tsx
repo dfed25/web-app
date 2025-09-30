@@ -4,6 +4,7 @@ import { useState } from 'react';
 import Image from 'next/image';
 export default function Home() {
   const [activeSection, setActiveSection] = useState('about');
+  const [formStatus, setFormStatus] = useState('');
 
   const sections = [
     { id: 'about', label: 'About' },
@@ -18,6 +19,30 @@ export default function Home() {
     if (element) {
       element.scrollIntoView({ behavior: 'smooth' });
     }
+  };
+
+  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setFormStatus('Sending...');
+    
+    const formData = new FormData(e.currentTarget);
+    const name = formData.get('name') as string;
+    const email = formData.get('email') as string;
+    const message = formData.get('message') as string;
+    
+    // Create mailto link
+    const subject = encodeURIComponent('New message from portfolio contact form');
+    const body = encodeURIComponent(`Name: ${name}\nEmail: ${email}\n\nMessage:\n${message}`);
+    const mailtoLink = `mailto:domfederico21@gmail.com?subject=${subject}&body=${body}`;
+    
+    // Open email client
+    window.location.href = mailtoLink;
+    
+    // Show success message
+    setTimeout(() => {
+      setFormStatus('Email client opened! Please send the email to complete your message.');
+      (e.target as HTMLFormElement).reset();
+    }, 1000);
   };
 
   return (
@@ -126,7 +151,7 @@ export default function Home() {
             {[
               {
                 title: "Rush start up",
-                description: "social media start up for college fraternities and sororities",
+                description: "social media start up for college fraternities and sororities - Git hub currently not public ",
                 tech: ["React", "Node.js"],
                 link: "https://github.com/rush-app-WA/fullstack"
               },
@@ -244,25 +269,44 @@ export default function Home() {
             </div>
             
             <div className="bg-gray-800 rounded-lg p-6">
-              <form className="space-y-4">
+              <form 
+                onSubmit={handleSubmit}
+                className="space-y-4"
+              >
                 <input
                   type="text"
+                  name="name"
                   placeholder="Your Name"
+                  required
                   className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
                 />
                 <input
                   type="email"
+                  name="email"
                   placeholder="Your Email"
+                  required
                   className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500"
                 />
                 <textarea
+                  name="message"
                   placeholder="Your Message"
                   rows={4}
+                  required
                   className="w-full p-3 bg-gray-700 border border-gray-600 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-blue-500 resize-none"
                 ></textarea>
-                <button className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
+                <input type="hidden" name="_replyto" value="domfederico21@gmail.com" />
+                <input type="hidden" name="_subject" value="New message from portfolio contact form" />
+                <button type="submit" className="w-full py-3 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors">
                   Send Message
                 </button>
+                {formStatus && (
+                  <div className={`text-center text-sm ${
+                    formStatus.includes('successfully') ? 'text-green-400' : 
+                    formStatus.includes('Error') ? 'text-red-400' : 'text-blue-400'
+                  }`}>
+                    {formStatus}
+                  </div>
+                )}
               </form>
             </div>
           </div>
